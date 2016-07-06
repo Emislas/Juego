@@ -36,6 +36,21 @@ attr_accessor :y, :height
     @x += 5
   end
 
+  def bumped_into?(object)
+    hero_left = @x
+    hero_right = @x + @width
+    hero_top = @y
+    hero_bottom  = @y + @height
 
+    object_top = object.y
+    object_bottom = object.y + object.height
+    object_left = object.x
+    object_right = object.x + object.width
 
+    if (hero_top > object_bottom) || (hero_bottom < object_top) || (hero_left > object_right) || (hero_right < object_left)
+      false
+    else
+      true
+    end
+  end
 end
