@@ -59,6 +59,10 @@ class Game < Gosu::Window
       @candy.reset!(self)
       @scoreboard.update_score!(@candy.points)
     end
+    if @hero.bumped_into?(@asteroid)
+      @asteroid.reset!(self)
+      @scoreboard.update_score!(@asteroid.points)
+    end
 
   end
 
